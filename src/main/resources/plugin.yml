@@ -1,0 +1,5 @@
+name: AFKPlusCooldown
+version: ${project.version}
+main: net.lapismc.afkpluscooldown.AFKPlusCooldown
+api-version: 1.18
+depend: [ AFKPlus ]

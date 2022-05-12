@@ -1,0 +1,4 @@
+#Time in seconds between allowed /afk uses
+Cooldown: 10
+#The message to be displayed to users when they try to use the command during cooldown
+DisallowMessage: "&pYou must wait &s{TIME}&p before using this command again"
