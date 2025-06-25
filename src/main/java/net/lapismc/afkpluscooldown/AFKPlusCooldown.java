@@ -25,20 +25,35 @@ public final class AFKPlusCooldown extends JavaPlugin implements Listener {
         saveDefaultConfig();
         //The time in seconds that the cooldown should last
         cooldownTime = getConfig().getInt("Cooldown");
+        getLogger().info(getName() + " v." + getDescription().getVersion() + " has been enabled!");
     }
 
     @EventHandler
     public void onPlayerCommand(PlayerCommandPreprocessEvent e) {
-        boolean isAfkCommand = e.getMessage().contains("afk");
+        boolean isAfkCommand = isMessageCommand(e.getMessage(), "afk");
         //Check if the player is running an alias of /AFK
         for (String command : CommandRegistry.getCommand("afk").getTakenAliases()) {
-            if (e.getMessage().contains(command)) {
+            if (isMessageCommand(e.getMessage(), command)) {
                 isAfkCommand = true;
+                break;
             }
         }
         if (isAfkCommand) {
             processCooldown(e, afkPlus.getPlayer(e.getPlayer().getUniqueId()));
         }
+    }
+
+    /**
+     * Test if the given message is a command using the command string command
+     *
+     * @param message The message being run as a command
+     * @param command The name of the command to test
+     * @return True if the given command is being executed by the given message, otherwise false
+     */
+    private boolean isMessageCommand(String message, String command) {
+        if (message.equalsIgnoreCase("/" + command)) {
+            return true;
+        } else return message.startsWith("/" + command + " ");
     }
 
     /**

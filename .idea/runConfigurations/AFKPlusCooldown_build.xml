@@ -9,16 +9,14 @@
         <list />
       </option>
       <option name="taskNames">
-        <list>
-          <option value="clean" />
-          <option value="build" />
-        </list>
+        <list />
       </option>
       <option name="vmOptions" />
     </ExternalSystemSettings>
     <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
     <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
     <DebugAllEnabled>false</DebugAllEnabled>
+    <RunAsTest>false</RunAsTest>
     <method v="2" />
   </configuration>
 </component>
